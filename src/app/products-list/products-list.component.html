@@ -1,0 +1,29 @@
+<div class="container-fluid">
+  <div class="table-responsive">
+    <div *ngIf="categoryId">
+      <h3 style="margin-bottom: 10px;">Product List for Category: {{categoryId}}</h3>
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>ProductId</th>
+            <th>ProductName</th>
+            <th>CategoryId</th>
+          </tr>
+        </thead>
+        <tbody *ngIf="productList.length > 0">
+          <tr *ngFor="let product of productList">
+            <td>{{product.productId}}</td>
+            <td>{{product.productName}}</td>
+            <td>{{product.categoryId}}</td>
+          </tr>
+        </tbody>
+        <tbody *ngIf="productList.length == 0">
+          <tr>
+            <td colspan="3" style="text-align: center;">No Products Found on categoryId: {{categoryId}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+

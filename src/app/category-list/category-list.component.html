@@ -1,0 +1,34 @@
+
+<div class="container-fluid">
+  <div style ="margin-top : 40px;">
+    <button class="btn btn-success" routerLink = "/admin/login">AdminLogin</button>
+    <button class="btn btn-primary" style = "margin-left : 5px;" routerLink = "/registration">User Registration</button>
+  </div>
+  <div class="table-responsive">
+    <h3 style=" margin-top : 40px; margin-bottom: 15px;">Category List</h3>
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>CategoryId</th>
+          <th>CategoryName</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="categoryList.length > 0">
+        <tr *ngFor="let category of categoryList">
+          <td>{{category.categoryId}}</td>
+          <td class="category" (click)="onCategoryClick(category.categoryId)">{{category.categoryName}}</td>
+        </tr>
+      </tbody>
+      <tbody *ngIf="categoryList.length == 0">
+        <tr>
+          <td colspan="2" style="text-align: center;">No data to display</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <app-products-list [categoryId]="currentCategory"></app-products-list>
+
+</div>
+
+

@@ -1,0 +1,27 @@
+<div style="background-color: green;height:50px;margin-top:15px;">
+  <p style="padding: 12px !important; font-size: 20px; color: black;">Admin</p>
+  <button class="btn btn-primary" style="float:right; margin-top: -50px; margin-right: 22px;" (click)="logOut()">Logout</button>
+</div>
+<div class="container-fluid" style="margin-top:20px;">
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th style="text-align: center;">Notifications</th>
+        </tr>
+      </thead>
+      <tbody *ngIf = "notifications.length > 0">
+        <tr *ngFor = "let notification of notifications">
+          <td>{{notification.user}} registered successfully on {{notification.date}} at {{notification.time}}</td>
+        </tr>
+      </tbody>
+      <tbody *ngIf = "notifications.length == 0">
+        <tr>
+          <td style="text-align: center;">No One Registered</td>
+        </tr>
+      </tbody>
+
+
+    </table>
+  </div>
+</div>
